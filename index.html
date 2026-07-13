@@ -716,6 +716,38 @@
     opacity: .8;
   }
   .lightbox-close:hover { opacity: 1; }
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,.18);
+    color: #fff;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .15s;
+    line-height: 1;
+  }
+  .lightbox-nav:hover { background: rgba(255,255,255,.35); }
+  .lb-prev { left: 16px; }
+  .lb-next { right: 16px; }
+  .lb-counter {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,.8);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .05em;
+  }
 
   /* ── 경로 표시 (기존 path-step .arrow 호환용 제거) ── */
 
@@ -1216,6 +1248,42 @@
   .coming-soon-icon { font-size: 52px; }
   .coming-soon-title { font-size: 20px; font-weight: 800; color: var(--text); }
   .coming-soon-desc { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+  /* ── Q&A 섹션 ── */
+  .qa-section {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .qa-section-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .qa-card {
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .qa-q {
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 13.5px;
+    font-weight: 800;
+    padding: 13px 16px;
+    border-bottom: 1px solid #d4daf5;
+  }
+  .qa-a {
+    padding: 14px 16px;
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .qa-a p { margin: 0 0 6px; }
+
   /* ── 메모 샘플 박스 ── */
   .memo-sample-box {
     background: #f7f8fc;
@@ -1550,6 +1618,91 @@
     </div>
     </div>
   </div>
+
+  <!-- Q&A -->
+  <div class="qa-section">
+    <div class="qa-section-title">❓ 자주 묻는 질문</div>
+
+    <!-- Q1 -->
+    <div class="qa-card">
+      <div class="qa-q">Q1. 하이라이트 화면이 달라요!</div>
+      <div class="qa-a">
+        <p>하이라이트 설정이 처음이신 분들은 아래 경로로 설정해보세요!</p>
+        <div class="path-row" style="margin:10px 0;">
+          <div class="path-step"><span>+ 누르기</span></div><span class="path-arrow">→</span>
+          <div class="path-step"><span>주요 특징</span></div><span class="path-arrow">→</span>
+          <div class="path-step"><span>선택 후 위 가이드대로 진행</span></div>
+        </div>
+        <div class="img-slider" id="slider-qa1">
+          <div class="img-slider-track">
+            <img src="images/Q_A1-1.png" alt="+ 버튼 누르기" class="step-img" onclick="openLightbox(this.src)">
+            <img src="images/Q_A1-2.png" alt="주요 특징 선택" class="step-img" onclick="openLightbox(this.src)">
+          </div>
+          <button class="img-slider-btn prev" onclick="sliderPrev('slider-qa1')">&#8249;</button>
+          <button class="img-slider-btn next" onclick="sliderNext('slider-qa1')">&#8250;</button>
+          <div class="img-slider-counter"><span class="cur">1</span>/2</div>
+          <div class="img-slider-dots">
+            <button class="img-slider-dot active" onclick="sliderGo('slider-qa1',0)"></button>
+            <button class="img-slider-dot" onclick="sliderGo('slider-qa1',1)"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qa-card">
+      <div class="qa-q">Q2. 게시물은 올려봤는데, 스토리는 안 올려봐서 하이라이트에 넣을 게 없어요!</div>
+      <div class="qa-a">
+        <p>기존 게시물을 스토리로 올린 후에 하이라이트로 만들어보세요!</p>
+        <div class="path-row" style="margin:10px 0;">
+          <div class="path-step"><span>비행기 모양</span></div><span class="path-arrow">→</span>
+          <div class="path-step"><span>스토리에 추가</span></div><span class="path-arrow">→</span>
+          <div class="path-step"><span>내 스토리</span></div><span class="path-arrow">→</span>
+          <div class="path-step"><span>Q1 가이드대로 진행</span></div>
+        </div>
+        <div class="img-slider" id="slider-qa2">
+          <div class="img-slider-track">
+            <img src="images/Q_A2-1.png" alt="비행기 모양 아이콘" class="step-img" onclick="openLightbox(this.src)">
+            <img src="images/Q_A2-2.png" alt="스토리에 추가" class="step-img" onclick="openLightbox(this.src)">
+            <img src="images/Q_A2-3.png" alt="내 스토리 선택" class="step-img" onclick="openLightbox(this.src)">
+          </div>
+          <button class="img-slider-btn prev" onclick="sliderPrev('slider-qa2')">&#8249;</button>
+          <button class="img-slider-btn next" onclick="sliderNext('slider-qa2')">&#8250;</button>
+          <div class="img-slider-counter"><span class="cur">1</span>/3</div>
+          <div class="img-slider-dots">
+            <button class="img-slider-dot active" onclick="sliderGo('slider-qa2',0)"></button>
+            <button class="img-slider-dot" onclick="sliderGo('slider-qa2',1)"></button>
+            <button class="img-slider-dot" onclick="sliderGo('slider-qa2',2)"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qa-card">
+      <div class="qa-q">Q3. 고정 게시물은 어떻게 설정하나요?</div>
+      <div class="qa-a">
+        <div class="path-row" style="margin:10px 0;">
+          <div class="path-step"><span>점 3개 (⋯)</span></div><span class="path-arrow">→</span>
+          <div class="path-step"><span>기본 그리드에 고정</span></div>
+        </div>
+        <div class="img-slider" id="slider-qa3">
+          <div class="img-slider-track">
+            <img src="images/Q_A3-1.png" alt="점 3개 메뉴" class="step-img" onclick="openLightbox(this.src)">
+            <img src="images/Q_A3-2.png" alt="기본 그리드에 고정" class="step-img" onclick="openLightbox(this.src)">
+          </div>
+          <button class="img-slider-btn prev" onclick="sliderPrev('slider-qa3')">&#8249;</button>
+          <button class="img-slider-btn next" onclick="sliderNext('slider-qa3')">&#8250;</button>
+          <div class="img-slider-counter"><span class="cur">1</span>/2</div>
+          <div class="img-slider-dots">
+            <button class="img-slider-dot active" onclick="sliderGo('slider-qa3',0)"></button>
+            <button class="img-slider-dot" onclick="sliderGo('slider-qa3',1)"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /qa-section -->
 
 </div>
 </div>
@@ -3225,25 +3378,58 @@ function scrollToCard(id) {
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-/* ── 라이트박스 ── */
+/* ── 라이트박스 (스와이프 + 좌우 이동) ── */
+let _lbImgs = [], _lbIdx = 0, _lbTouchX = null;
+
 function openLightbox(src) {
-  document.getElementById('lightbox-img').src = src;
+  // 클릭한 이미지와 같은 슬라이더(또는 페이지)의 모든 step-img 수집
+  const allImgs = Array.from(document.querySelectorAll('.step-img'));
+  _lbImgs = allImgs.map(i => i.src);
+  _lbIdx  = _lbImgs.indexOf(src);
+  if (_lbIdx < 0) { _lbImgs = [src]; _lbIdx = 0; }
+  _lbShow();
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow = '';
+function _lbShow() {
+  document.getElementById('lightbox-img').src = _lbImgs[_lbIdx];
+  const ct = document.getElementById('lb-counter');
+  if (_lbImgs.length > 1) ct.textContent = `${_lbIdx + 1} / ${_lbImgs.length}`;
+  else ct.textContent = '';
+  // 화살표 노출
+  document.querySelector('.lb-prev').style.display = _lbIdx > 0 ? 'flex' : 'none';
+  document.querySelector('.lb-next').style.display = _lbIdx < _lbImgs.length - 1 ? 'flex' : 'none';
 }
+function lbNav(dir, e) { e && e.stopPropagation(); _lbIdx = Math.max(0, Math.min(_lbIdx + dir, _lbImgs.length - 1)); _lbShow(); }
+function lbBgClick(e) { if (e.target === document.getElementById('lightbox') || e.target === document.getElementById('lightbox-img')) closeLightbox(); }
+function closeLightbox(e) { e && e.stopPropagation(); document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
+
+// 터치 스와이프
+document.addEventListener('DOMContentLoaded', function() {
+  const lb = document.getElementById('lightbox');
+  lb.addEventListener('touchstart', e => { _lbTouchX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    if (_lbTouchX === null) return;
+    const dx = e.changedTouches[0].clientX - _lbTouchX;
+    if (Math.abs(dx) > 40) lbNav(dx < 0 ? 1 : -1, null);
+    _lbTouchX = null;
+  });
+});
 document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
   if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft')  lbNav(-1, null);
+  if (e.key === 'ArrowRight') lbNav(1, null);
 });
 </script>
 
 <!-- 라이트박스 오버레이 -->
-<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+<div class="lightbox-overlay" id="lightbox" onclick="lbBgClick(event)">
   <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+  <button class="lightbox-nav lb-prev" onclick="lbNav(-1,event)">&#8249;</button>
   <img id="lightbox-img" src="" alt="확대 이미지">
+  <button class="lightbox-nav lb-next" onclick="lbNav(1,event)">&#8250;</button>
+  <div class="lb-counter" id="lb-counter"></div>
 </div>
 
 </body>
