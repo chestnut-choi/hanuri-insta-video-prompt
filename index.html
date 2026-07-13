@@ -93,6 +93,14 @@
     transition: background .18s, border-color .18s;
   }
   .ai-links a:hover { background: var(--primary-light); border-color: var(--primary); color: var(--primary); }
+  .ai-link-manual {
+    background: #e8f8f0 !important;
+    border-color: #2ecc71 !important;
+    color: #1a7a45 !important;
+    border-radius: 6px !important;
+    font-weight: 800 !important;
+  }
+  .ai-link-manual:hover { background: #c8f0da !important; }
 
   /* ── 탭 네비게이션 (4개) ── */
   .tab-nav {
@@ -1304,7 +1312,9 @@
   <div class="ai-links">
     <a href="https://chat.openai.com/" target="_blank">🤖 ChatGPT</a>
     <a href="https://gemini.google.com/" target="_blank">✨ Gemini</a>
+    <a href="https://claude.ai/" target="_blank">🧠 Claude</a>
     <a href="https://www.capcut.com/" target="_blank">🎬 CapCut</a>
+    <a href="https://shhkim3838-crypto.github.io/hanuri-prompt/" target="_blank" class="ai-link-manual">📒 네이버 매뉴얼</a>
   </div>
 
   <!-- 탭 네비게이션 -->
@@ -1341,7 +1351,7 @@
       <button class="hotspot-pin" data-target="setting-name"  style="top:16.3%; left:64%; background:#4f7cff;" onclick="scrollToCard('setting-name')">1</button>
       <button class="hotspot-pin" data-target="setting-bio"   style="top:30%;  left:64%; background:#34c77b;" onclick="scrollToCard('setting-bio')">2</button>
       <button class="hotspot-pin" data-target="setting-link"  style="top:37%;  left:20%; background:#ff9f43;" onclick="scrollToCard('setting-link')">3</button>
-      <button class="hotspot-pin" data-target="setting-highlight" style="top:52%; left:14%; background:#8b5cf6;" onclick="scrollToCard('setting-highlight')">4</button>
+      <button class="hotspot-pin" data-target="setting-highlight" style="top:67%; left:14%; background:#8b5cf6;" onclick="scrollToCard('setting-highlight')">4</button>
     </div>
 
     <div class="profile-mockup-legend">
@@ -1591,7 +1601,7 @@
         <li><span class="dot">1</span><div><strong>역할 정의 (Persona)</strong> — 학원 전문 숏폼 마케팅 전문가로 역할 지정</div></li>
         <li><span class="dot">2</span><div><strong>기본 정보</strong> — 학원명·위치·수업과목·타겟 학부모·영상 소스·핵심 메시지 입력</div></li>
         <li><span class="dot">3</span><div><strong>훅 3가지 컨셉</strong> — 공감형 / 해결책형 / 직설형으로 각 1개씩 제안 요청</div></li>
-        <li><span class="dot">4</span><div><strong>시각 구조화</strong> — 추천 장면 · 화면 자막 · 나레이션을 표(Table) 형태로 출력</div></li>
+        <li><span class="dot">4</span><div><strong>시각 구조화</strong> — 추천 장면 · 화면 자막 · 내레이션을 표(Table) 형태로 출력</div></li>
         <li><span class="dot">5</span><div><strong>업로드용 해시태그</strong> — 지역명·과목·브랜드명 기반 5개 추천</div></li>
       </ul>
 
@@ -1611,9 +1621,9 @@
 <span class="bracket">[작성 조건 및 기준]</span>
 1. 숏폼 훅(Hook): 영상 시작 3초 이내에 학부모의 공감을 이끌어내고 시선을 멈추게 할 강력한 카피를
    아래 3가지 컨셉별로 각각 1개씩(총 3개) 제안해주세요. (공감형 / 해결책형 / 직설형)
-2. 분량 및 어조: 전체 나레이션은 대화하듯 자연스러운 구어체(~요, ~죠)를 사용하되,
+2. 분량 및 어조: 전체 내레이션은 대화하듯 자연스러운 구어체(~요, ~죠)를 사용하되,
    15초 이내에 편집 없이 읽을 수 있도록 매우 짧고 간결하게 작성해주세요. (공백 제외 70자 이내)
-3. 시각 구조화: 화면에 들어갈 '핵심 자막'과 '나레이션(목소리)'을 구분하고,
+3. 시각 구조화: 화면에 들어갈 '핵심 자막'과 '내레이션(목소리)'을 구분하고,
    바쁜 선생님들을 위해 "교실에서 쉽게 찍을 수 있는 직관적인 장면"을 [추천 장면]으로 간단하게 명시하여
    표(Table) 형태로 출력해 주세요.
 4. 마무리 멘트: 스크립트 마지막 부분에 시청자가 프로필을 방문하거나 댓글을 달도록 유도하는 멘트를
@@ -1628,11 +1638,11 @@
 - 컨셉 C (직설형):
 
 ■ 2. 릴스 상세 스크립트 콘티 (표 형태)
-| 시간(초) | 추천 장면 (간단하게) | 화면 자막 (시각 요소) | 나레이션 (음성 요소) |
+| 시간(초) | 추천 장면 (간단하게) | 화면 자막 (시각 요소) | 내레이션 (음성 요소) |
 | :--- | :--- | :--- | :--- |
-| 0~3초 (Hook) | [어떤 장면인지 1줄 요약] | [선택한 훅 문구 노출] | [훅 나레이션] |
-| 3~7초 (Body 1) | [어떤 장면인지 1줄 요약] | [핵심 내용 자막 1] | [내용 나레이션 1] |
-| 7~12초 (Body 2) | [어떤 장면인지 1줄 요약] | [핵심 내용 자막 2] | [내용 나레이션 2] |
+| 0~3초 (Hook) | [어떤 장면인지 1줄 요약] | [선택한 훅 문구 노출] | [훅 내레이션] |
+| 3~7초 (Body 1) | [어떤 장면인지 1줄 요약] | [핵심 내용 자막 1] | [내용 내레이션 1] |
+| 7~12초 (Body 2) | [어떤 장면인지 1줄 요약] | [핵심 내용 자막 2] | [내용 내레이션 2] |
 | 12~15초 (마무리) | [어떤 장면인지 1줄 요약] | [행동 유도 자막] | [마무리 안내 멘트] |
 
 ■ 3. 인스타그램 업로드용 추천 해시태그
@@ -1667,7 +1677,7 @@
                 <th>시간</th>
                 <th>추천 장면</th>
                 <th>화면 자막</th>
-                <th>나레이션</th>
+                <th>내레이션</th>
               </tr>
             </thead>
             <tbody>
@@ -1741,7 +1751,7 @@
     <button class="quick-menu-btn" onclick="scrollToCard('edit-narration')">
       <span class="qm-num">3</span>
       <span class="qm-icon">🎤</span>
-      <span class="qm-label">나레이션<br>입히기</span>
+      <span class="qm-label">내레이션<br>입히기</span>
     </button>
     <button class="quick-menu-btn" onclick="scrollToCard('edit-image2video')">
       <span class="qm-num">4</span>
@@ -1755,7 +1765,6 @@
       <div class="step-circle">01</div>
       <div class="step-card-info">
         <div class="step-card-title">얼굴 자동 블러 처리</div>
-        <div class="step-card-sub">아이 초상권 보호 · 자동 블러 적용 후 미스 부분 수동 수정</div>
       </div>
       <span class="tool-tag capcut">CapCut (무료, 제한 횟수)</span>
     </div>
@@ -1803,8 +1812,7 @@
     <div class="step-card-head">
       <div class="step-circle">02</div>
       <div class="step-card-info">
-        <div class="step-card-title">자동 자막 처리</div>
-        <div class="step-card-sub"><strong>영상의 음성을 자막으로 만들어주는 기능</strong></div>
+        <div class="step-card-title">자동 자막 처리 (영상의 음성을 자막으로)</div>
       </div>
       <span class="tool-tag capcut">CapCut (월 2회 무료)</span>
     </div>
@@ -1856,8 +1864,7 @@
     <div class="step-card-head">
       <div class="step-circle">03</div>
       <div class="step-card-info">
-        <div class="step-card-title">나레이션 입히기</div>
-        <div class="step-card-sub">선생님이 직접 녹음 없이도 자연스러운 AI 목소리 추가</div>
+        <div class="step-card-title">내레이션 입히기</div>
       </div>
       <span class="tool-tag capcut">CapCut (무료)</span>
     </div>
@@ -1883,7 +1890,7 @@
         <img src="images/내레이션_입히기2.png" alt="텍스트를 오디오로 변환" class="step-img" onclick="openLightbox(this.src)">
         <img src="images/내레이션_입히기3.png" alt="스크립트 입력 및 음성 선택" class="step-img" onclick="openLightbox(this.src)">
         <img src="images/내레이션_입히기4.png" alt="음성 종류 선택" class="step-img" onclick="openLightbox(this.src)">
-        <img src="images/내레이션_입히기5.png" alt="나레이션 생성 확인" class="step-img" onclick="openLightbox(this.src)">
+        <img src="images/내레이션_입히기5.png" alt="내레이션 생성 확인" class="step-img" onclick="openLightbox(this.src)">
         <img src="images/내레이션_입히기6.png" alt="수정할 부분 클릭" class="step-img" onclick="openLightbox(this.src)">
         <img src="images/내레이션_입히기7.png" alt="내레이션 전체 선택" class="step-img" onclick="openLightbox(this.src)">
         <img src="images/내레이션_입히기8.png" alt="스타일 적용" class="step-img" onclick="openLightbox(this.src)">
@@ -1917,7 +1924,6 @@
       <div class="step-circle">04</div>
       <div class="step-card-info">
         <div class="step-card-title">이미지로 영상 만들기</div>
-        <div class="step-card-sub">사진들을 슬라이드쇼 영상 & 릴스로 변환</div>
       </div>
       <span class="tool-tag capcut">CapCut (무료)</span>
     </div>
