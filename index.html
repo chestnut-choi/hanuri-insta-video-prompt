@@ -81,14 +81,14 @@
   .ai-links a {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 7px;
     background: var(--bg);
     border: 1px solid var(--border);
     color: var(--text);
-    font-size: 13px;
-    font-weight: 600;
-    padding: 7px 16px;
-    border-radius: 20px;
+    font-size: 15.5px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 22px;
     text-decoration: none;
     transition: background .18s, border-color .18s;
   }
@@ -97,7 +97,7 @@
     background: #e8f8f0 !important;
     border-color: #2ecc71 !important;
     color: #1a7a45 !important;
-    border-radius: 6px !important;
+    border-radius: 8px !important;
     font-weight: 800 !important;
   }
   .ai-link-manual:hover { background: #c8f0da !important; }
@@ -933,7 +933,7 @@
   .copy-table-btn.copied { background: var(--green-light); border-color: var(--green); color: #0d6e3a; }
 
   /* ── 대량 결과물 예시 ── */
-  .bulk-result-wrap { display: flex; flex-direction: column; gap: 0; margin-top: 4px; }
+  .bulk-result-wrap { display: flex; flex-direction: column; gap: 14px; margin-top: 4px; }
   .bulk-result-item { background: #fffbf0; border: 1px solid #ffe08a; border-radius: var(--radius-sm); padding: 16px 18px; margin-bottom: 0; }
   .bulk-result-header {
     font-size: 13px;
@@ -953,18 +953,6 @@
     padding: 2px 9px;
     border-radius: 20px;
   }
-  .bulk-divider {
-    text-align: center;
-    font-size: 12px;
-    color: #c5a855;
-    letter-spacing: 2px;
-    padding: 6px 0;
-    background: #fffbf0;
-    border-left: 1px solid #ffe08a;
-    border-right: 1px solid #ffe08a;
-  }
-  .bulk-result-item:last-child { border-top: none; border-radius: 0 0 var(--radius-sm) var(--radius-sm); }
-  .bulk-result-item:first-child { border-radius: var(--radius-sm) var(--radius-sm) 0 0; }
 
   /* ── 템플릿 다운로드 카드 ── */
   .template-download-card {
@@ -1367,6 +1355,173 @@
     padding: 2px 8px;
     border-radius: 10px;
   }
+  /* ── 편집 가능한 입력 슬롯 ── */
+  .editable-slot {
+    display: inline-block;
+    min-width: 60px;
+    min-height: 1.5em;
+    background: #fff0f0;
+    border: 1.5px dashed #e05555;
+    border-radius: 5px;
+    padding: 3px 9px;
+    color: #c23838;
+    font-weight: 800;
+    font-size: 17px;
+    cursor: text;
+    outline: none;
+    transition: background .15s, border-color .15s;
+    vertical-align: baseline;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .editable-slot:focus {
+    background: #fff8f0;
+    border-color: #e07020;
+    color: #a03000;
+    box-shadow: 0 0 0 3px rgba(224,112,32,.15);
+  }
+  .editable-slot:empty::before {
+    content: attr(data-placeholder);
+    color: #cca0a0;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  /* ── 프롬프트 안내 문구 ── */
+  .prompt-guide-label {
+    font-size: 16px;
+    font-weight: 800;
+    color: #c23838;
+    background: #fff0f0;
+    border: 1.5px solid #f5c0c0;
+    border-radius: 8px;
+    padding: 11px 16px;
+    margin-bottom: 10px;
+    letter-spacing: -.01em;
+  }
+
+  /* ── 교육글 재료 교체 버튼 ── */
+  .edu-material-switcher {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: var(--purple-light);
+    border: 2px solid #c4a3fb;
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .edu-material-label {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--purple);
+    white-space: nowrap;
+  }
+  .edu-mat-btn {
+    background: #fff;
+    border: 1.5px solid #c4a3fb;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 14.5px;
+    font-weight: 800;
+    color: var(--purple);
+    cursor: pointer;
+    transition: all .18s;
+  }
+  .edu-mat-btn:hover { border-color: var(--purple); background: #f3e8ff; }
+  .edu-mat-btn.active { background: var(--purple); border-color: var(--purple); color: #fff; }
+
+  /* ── 학생별 수업 메모 (대량 피드백) ── */
+  .bulk-student-list {
+    display: block;
+    margin: 2px 0 4px;
+  }
+  .bulk-student-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin: 4px 0;
+    white-space: normal;
+  }
+  .bulk-student-row .editable-slot {
+    flex-shrink: 0;
+  }
+  .bulk-student-row .editable-slot.memo-slot {
+    flex: 1;
+    min-width: 120px;
+  }
+  .bulk-remove-student-btn {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: #fff;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1;
+    cursor: pointer;
+    margin-top: 2px;
+    transition: all .15s;
+  }
+  .bulk-remove-student-btn:hover { background: var(--accent-light); border-color: var(--accent); color: var(--accent); }
+  .bulk-add-student-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    border: 1.5px dashed var(--primary);
+    color: var(--primary);
+    font-size: 13.5px;
+    font-weight: 800;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: all .15s;
+  }
+  .bulk-add-student-btn:hover { background: var(--primary-light); }
+
+  /* ── 메뉴 진입 안내 배너 ── */
+  .menu-hero {
+    background: linear-gradient(120deg, var(--primary) 0%, #6a3de8 100%);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 22px 24px 18px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 18px rgba(79,124,255,.25);
+  }
+  .menu-hero-text {
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.45;
+    letter-spacing: -.02em;
+  }
+  .menu-hero-emoji { font-size: 22px; margin-right: 6px; }
+
+  /* ── 프롬프트 복사 버튼 (업그레이드) ── */
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f59e0b;
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 14px 24px;
+    font-size: 17px;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: background .18s, transform .12s;
+    box-shadow: 0 3px 10px rgba(245,158,11,.35);
+    letter-spacing: .01em;
+  }
+  .copy-btn:hover { background: #d97706; transform: translateY(-1px); }
+  .copy-btn:active { transform: scale(0.98); }
+  .copy-btn.copied { background: var(--green); box-shadow: 0 3px 10px rgba(52,199,89,.3); }
 
 </style>
 </head>
@@ -1378,10 +1533,10 @@
   <h1>AI로 해결하는<br>콘텐츠 제작·학부모 피드백</h1>
   <p class="subtitle">인스타그램 · 학부모 피드백 · 지역 커뮤니티</p>
   <div class="ai-links">
-    <a href="https://chat.openai.com/" target="_blank">🤖 ChatGPT</a>
-    <a href="https://gemini.google.com/" target="_blank">✨ Gemini</a>
-    <a href="https://claude.ai/" target="_blank">🧠 Claude</a>
-    <a href="https://www.capcut.com/" target="_blank">🎬 CapCut</a>
+    <a href="https://chat.openai.com/" target="_blank">🤖 챗 지피티</a>
+    <a href="https://gemini.google.com/" target="_blank">✨ 제미나이</a>
+    <a href="https://claude.ai/" target="_blank">🧠 클로드</a>
+    <a href="https://www.capcut.com/" target="_blank">🎬 캡컷</a>
     <a href="https://shhkim3838-crypto.github.io/hanuri-prompt/" target="_blank" class="ai-link-manual">📒 네이버 매뉴얼</a>
   </div>
 
@@ -1410,6 +1565,7 @@
 <!-- ═══════════════════════════════════════ -->
 <div id="tab-setting" class="tab-panel active">
 <div class="container">
+  <div class="menu-hero"><div class="menu-hero-text"><span class="menu-hero-emoji">📸</span>한눈에 보이는 우리 독서교실, 인스타그램 프로필로 완성하기</div></div>
 
   <!-- 인스타그램 프로필 미리보기 + 넘버링 (4개) -->
   <div class="profile-mockup-wrap">
@@ -1729,11 +1885,12 @@
   <!-- 서브탭 패널: 영상 기획 -->
   <div id="sub-plan" class="sub-tab-panel active">
   <div class="container">
+  <div class="menu-hero"><div class="menu-hero-text"><span class="menu-hero-emoji">🎬</span>어떤 영상을 찍을지 막막하시다면? 1분 만에 영상 기획안 받아보기</div></div>
 
   <div class="section-title">
     <span>🎬 영상 기획안 프롬프트</span>
   </div>
-  <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:18px;">아래 프롬프트를 복사하여 AI 툴에 붙여넣고, { } 안 내용만 수정하여 활용해보세요. 영상 스크립트 · 추천 촬영 장면 · 자막 · 내레이션까지 한번에 받아볼 수 있습니다.</p>
+  <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:18px;">아래 프롬프트에서 빨간 글씨 영역을 직접 작성하셔서 바로 활용 가능합니다.</p>
 
   <div class="prompt-card">
     <div class="prompt-card-head">
@@ -1758,18 +1915,18 @@
         <li><span class="dot">5</span><div><strong>업로드용 해시태그</strong> — 지역명·과목·브랜드명 기반 5개 추천</div></li>
       </ul>
 
-      <div class="field-label">프롬프트 복사 후 { } 안 내용만 수정하세요</div>
+      <div class="prompt-guide-label">✏️ 빨간 글씨를 클릭해서 바로 입력한 후 복사해 AI 툴에 붙여 넣으세요</div>
       <div class="prompt-box" id="prompt-script">당신은 학원 전문 인스타그램 숏폼 마케팅 전문가입니다.
 제공된 정보를 바탕으로, 학부모의 시선을 사로잡고 이탈을 막는 15초 이내의
 인스타그램 릴스 스크립트와 간단한 촬영 아이디어를 작성해주세요.
 
 <span class="bracket">[기본 정보]</span>
-- 학원 이름: <span class="swap-slot">{한우리독서토론논술 화성지점}</span>
-- 학원 위치(지역명): <span class="swap-slot">{한우리 빌딩 상가 3층}</span>
-- 주요 수업 과목: <span class="swap-slot">{초등 독서, 토론, 글쓰기}</span>
-- 타겟 학부모: <span class="swap-slot">{초등 3~4학년 자녀를 둔, 아이에게 토론 능력을 심어주고 싶은 학부모님}</span>
-- 핵심 메시지: <span class="swap-slot">{우리 학원은 아이가 스스로 생각을 터트릴 수 있도록 하는 즐거운 토론 시간이 있다}</span>
-- 마지막 행동 유도(멘트): <span class="swap-slot">{프로필 링크 클릭하여 무료 상담 신청하기}</span>
+- 학원 이름: <span class="editable-slot" contenteditable="true" spellcheck="false">한우리독서토론논술 화성지점</span>
+- 학원 위치(지역명): <span class="editable-slot" contenteditable="true" spellcheck="false">한우리 빌딩 상가 3층</span>
+- 주요 수업 과목: <span class="editable-slot" contenteditable="true" spellcheck="false">초등 독서, 토론, 글쓰기</span>
+- 타겟 학부모: <span class="editable-slot" contenteditable="true" spellcheck="false">초등 3~4학년 자녀를 둔, 아이에게 토론 능력을 심어주고 싶은 학부모님</span>
+- 핵심 메시지: <span class="editable-slot" contenteditable="true" spellcheck="false">우리 학원은 아이가 스스로 생각을 터트릴 수 있도록 하는 즐거운 토론 시간이 있다</span>
+- 마지막 행동 유도(멘트): <span class="editable-slot" contenteditable="true" spellcheck="false">프로필 링크 클릭하여 무료 상담 신청하기</span>
 
 <span class="bracket">[작성 조건 및 기준]</span>
 1. 숏폼 훅(Hook): 영상 시작 3초 이내에 학부모의 공감을 이끌어내고 시선을 멈추게 할 강력한 카피를
@@ -1881,14 +2038,7 @@
   <!-- 서브탭 패널: 영상 편집 -->
   <div id="sub-edit" class="sub-tab-panel">
   <div class="container">
-
-  <div class="notice-box">
-    <span class="icon">🎬</span>
-    <div>
-      <strong>CapCut을 활용한 편집 가이드입니다</strong><br>
-      아래 퀵 메뉴를 눌러 필요한 기능으로 바로 이동하세요.
-    </div>
-  </div>
+  <div class="menu-hero"><div class="menu-hero-text"><span class="menu-hero-emoji">✂️</span>CapCut으로 영상 쉽게 편집하기&nbsp;&nbsp;<span style="font-size:14px;font-weight:600;opacity:.85;">💎 다이아몬드는 유료 기능이에요!</span></div></div>
 
   <div class="quick-menu">
     <button class="quick-menu-btn" onclick="scrollToCard('edit-blur')">
@@ -2123,6 +2273,7 @@
   <!-- 서브탭 패널: 영상 업로드 -->
   <div id="sub-upload" class="sub-tab-panel">
   <div class="container">
+  <div class="menu-hero"><div class="menu-hero-text"><span class="menu-hero-emoji">📤</span>콘텐츠를 더 매력적으로! 본문 캡션 &amp; 해시태그 받아보기</div></div>
 
   <div class="attach-guide-card">
     <div class="attach-guide-title">📋 이렇게 진행하세요</div>
@@ -2156,20 +2307,20 @@
         <li><span class="dot">4</span><div><strong>150자 초압축 스토리텔링</strong> — 바쁜 학부모도 한눈에 읽는 짧고 강렬한 본문</div></li>
         <li><span class="dot">5</span><div><strong>카테고리별 해시태그 전략</strong> — 지역 선점 · 경쟁 우위 · 타겟 소통 3단계로 분류</div></li>
       </ul>
-      <div class="field-label">프롬프트 복사 후 <span class="swap-legend">{ } 안 내용</span>만 수정하세요</div>
+      <div class="prompt-guide-label">✏️ 빨간 글씨를 클릭해서 바로 입력한 후 복사해 AI 툴에 붙여 넣으세요</div>
       <div class="prompt-box" id="prompt-caption">당신은 인스타그램 교육 마케팅 전문 카피라이터이자 로컬 검색 최적화(SEO) 전문가입니다.
 내가 첨부한 릴스 영상의 내용과 아래 제공된 정보를 결합하여, 바쁜 학부모들이 한눈에 읽을 수 있도록
 요약된 피드 본문(캡션)과 전략적 해시태그를 작성해주세요.
 
 <span class="bracket">[기본 정보]</span>
-- 학원 공식 이름: <span class="swap-slot">{한우리독서토론논술 화성지점}</span>
-- 학원 상세 위치: <span class="swap-slot">{한우리 빌딩 상가 3층}</span>
-- 원장님/선생님 경력: <span class="swap-slot">{15년 경력의 베테랑 논술 지도 전문 교사}</span>
-- 학원 주요 상담 채널: <span class="swap-slot">{DM 문의, 전화 상담, 프로필 링크 방문 모두 환영}</span>
-- 첨부한 영상 설명: <span class="swap-slot">{초등 3학년 아이들이 '노키즈존'에 대해 찬반 토론을 펼치는 생생한 편집 영상}</span>
-- 학부모의 주된 고민 키워드: <span class="swap-slot">{학교에서 하는 토론형 수행평가나 발표를 너무 어려워함}</span>
-- 이번 피드의 주요 목적: <span class="swap-slot">{학원의 토론 수업 방식 홍보 및 이번 달 상담 이벤트 안내}</span>
-- 이번 달 이벤트/혜택 멘트: <span class="swap-slot">{6월 한정 선착순 5명 무료 체험 수업 혜택 제공}</span>
+- 학원 공식 이름: <span class="editable-slot" contenteditable="true" spellcheck="false">한우리독서토론논술 화성지점</span>
+- 학원 상세 위치: <span class="editable-slot" contenteditable="true" spellcheck="false">한우리 빌딩 상가 3층</span>
+- 원장님/선생님 경력: <span class="editable-slot" contenteditable="true" spellcheck="false">15년 경력의 베테랑 논술 지도 전문 교사</span>
+- 학원 주요 상담 채널: <span class="editable-slot" contenteditable="true" spellcheck="false">DM 문의, 전화 상담, 프로필 링크 방문 모두 환영</span>
+- 첨부한 영상 설명: <span class="editable-slot" contenteditable="true" spellcheck="false">초등 3학년 아이들이 '노키즈존'에 대해 찬반 토론을 펼치는 생생한 편집 영상</span>
+- 학부모의 주된 고민 키워드: <span class="editable-slot" contenteditable="true" spellcheck="false">학교에서 하는 토론형 수행평가나 발표를 너무 어려워함</span>
+- 이번 피드의 주요 목적: <span class="editable-slot" contenteditable="true" spellcheck="false">학원의 토론 수업 방식 홍보 및 이번 달 상담 이벤트 안내</span>
+- 이번 달 이벤트/혜택 멘트: <span class="editable-slot" contenteditable="true" spellcheck="false">6월 한정 선착순 5명 무료 체험 수업 혜택 제공</span>
 
 <span class="bracket">[캡션(본문) 작성 조건]</span>
 - 분량: 본문 스토리텔링은 공백 포함 '150자 내외'로 매우 짧고 강렬하게 작성해주세요.
@@ -2263,6 +2414,7 @@
   <!-- ─── 서브탭: 커뮤니티 분석 ─── -->
   <div id="sub-comm-analyze" class="sub-tab-panel active">
   <div class="container">
+  <div class="menu-hero"><div class="menu-hero-text"><span class="menu-hero-emoji">🔍</span>똑똑한 AI에게 커뮤니티를 분석하고 학습시키기</div></div>
 
     <!-- 활용 흐름 -->
     <div class="attach-guide-card">
@@ -2278,7 +2430,7 @@
     <div class="section-title">
       <span>🔍 커뮤니티 분석 프롬프트</span>
     </div>
-    <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:18px;">인기글을 첨부한 뒤 아래 프롬프트를 함께 입력하세요. <span class="swap-legend">{ } 안 내용</span>만 수정하면 됩니다.</p>
+    <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:18px;">아래 프롬프트에서 빨간 글씨 영역을 직접 작성하셔서 바로 활용 가능합니다.</p>
 
     <div class="prompt-card">
       <div class="prompt-card-head">
@@ -2301,12 +2453,12 @@
           <li><span class="dot">4</span><div><strong>다음 글 작성 블록</strong> — 다음 프롬프트에 바로 붙여넣을 수 있는 10줄 요약 블록 포함</div></li>
         </ul>
 
-        <div class="field-label">프롬프트 복사 후 <span class="swap-legend">{ } 안 내용</span>만 수정하세요</div>
-        <div class="prompt-box" id="prompt-comm-analyze">나는 <span class="swap-slot">{지역명}</span>에서 초등 독서토론논술을 가르치는 선생님입니다.
+        <div class="prompt-guide-label">✏️ 빨간 글씨를 클릭해서 바로 입력한 후 복사해 AI 툴에 붙여 넣으세요</div>
+        <div class="prompt-box" id="prompt-comm-analyze">나는 <span class="editable-slot" contenteditable="true" spellcheck="false">지역명</span>에서 초등 독서토론논술을 가르치는 선생님입니다.
 앞으로 이 커뮤니티에 독서 전문가로서 포지셔닝을 하고, 독서, 글쓰기, 토론, 발표, 자녀 양육 관련 도움글을 올리려고 합니다. 자연스러운 글을 쓰기 위해, 첨부한 글의 내용을 베끼지 말고, 말투와 형식만 분석해주세요.
 
 ★<span class="bracket">[핵심 작성 조건]</span>
-- <span class="swap-slot">{지역명}</span>에서 아이들을 가르치는 '논술 선생님'이라는 정체성을 당당하고 자연스럽게 오픈하되,
+- <span class="editable-slot" contenteditable="true" spellcheck="false">지역명</span>에서 아이들을 가르치는 '논술 선생님'이라는 정체성을 당당하고 자연스럽게 오픈하되,
   학원 홍보가 아닌 '동네 아이들을 많이 겪어본 친근한 전문가'의 느낌이 나도록
   분석과 예시를 작성해야 합니다.
 
@@ -2454,7 +2606,6 @@
 5. 제목/첫 문장: 질문형/대화체 제목, "수업하다가 느낀 점"이나 "동네 아이들 일화"로 시작
 6. 금지사항: 학원명, 위치, 상담/문의 유도, 훈계조(~해야 합니다), 과도한 마케팅 기호 절대 금지
 7. 핵심 포커스: 홍보가 아닌 '정보 공유와 소통'에 집중하여 신뢰감 있는 전문가 포지셔닝 구축</div>
-          <button class="copy-btn" onclick="copyPrompt('comm-standard-block', this)" style="margin-top:10px;">📋 기준 블록 복사하기</button>
 
         </div><!-- /result-example -->
       </div>
@@ -2467,6 +2618,7 @@
   <!-- ─── 서브탭: 콘텐츠 생성 ─── -->
   <div id="sub-comm-create" class="sub-tab-panel">
   <div class="container">
+  <div class="menu-hero"><div class="menu-hero-text"><span class="menu-hero-emoji">✍️</span>간단한 글감만 제공하여 커뮤니티 글 만들기</div></div>
 
     <div class="notice-box">
       <span class="icon">✍️</span>
@@ -2525,24 +2677,24 @@
             <li><span class="dot">5</span><div><strong>4가지 출력</strong> — 제목 후보 5개 + 게시글 초안 + 뺀 표현 목록 + 주의사항</div></li>
           </ul>
 
-          <div class="field-label">프롬프트 복사 후 { } 안 내용만 수정하세요</div>
-          <div class="prompt-box" id="prompt-comm-daily">나는 <span class="swap-slot">{지역명}</span>에서 초등 독서토론논술을 가르치는 선생님입니다.
+          <div class="prompt-guide-label">✏️ 빨간 글씨를 클릭해서 바로 입력한 후 복사해 AI 툴에 붙여 넣으세요</div>
+          <div class="prompt-box" id="prompt-comm-daily">나는 <span class="editable-slot" contenteditable="true" spellcheck="false">지역명</span>에서 초등 독서토론논술을 가르치는 선생님입니다.
 내가 제공한 정보를 바탕으로 커뮤니티 내에서 광고처럼 보이지 않는 학원 일상글을 작성해주세요.
 
 ★<span class="bracket">[핵심 작성 조건]</span>
-- <span class="swap-slot">{지역명}</span>에서 아이들을 가르치는 '논술 선생님'이라는 정체성을 당당하고 자연스럽게 오픈하되,
+- <span class="editable-slot" contenteditable="true" spellcheck="false">지역명</span>에서 아이들을 가르치는 '논술 선생님'이라는 정체성을 당당하고 자연스럽게 오픈하되,
   학원 홍보가 아닌 '동네 아이들을 많이 겪어본 친근한 전문가'의 포지션입니다.
 
 <span class="bracket">[커뮤니티 글쓰기 기준]</span>
-<span class="swap-slot">{[커뮤니티 분석]에서 받은 기준 블록을 여기에 붙여넣으세요}</span>
+<span class="editable-slot" contenteditable="true" spellcheck="false">[커뮤니티 분석]에서 받은 기준 블록을 여기에 붙여넣으세요</span>
 
 <span class="bracket">[오늘의 글 재료]</span>
-- 오늘의 상황: <span class="swap-slot">{예: 초3 아이들이 처음에는 토론 수업 때 쭈뼛쭈뼛했는데, 이제는 자신감 있게 본인의 주장을 이야기하는 모습이 새삼 대견스럽다}</span>
-- 기억에 남은 장면: <span class="swap-slot">{예: 한 아이가 예상 밖의 의견을 냈다}</span>
-- 아이들에게 느낀 점: <span class="swap-slot">{예: 아이들 생각이 너무 깊고, 이렇게 성장했다는 부분이 뿌듯했다}</span>
-- 글에서 보여주고 싶은 선생님 모습: <span class="swap-slot">{예: 아이들 생각을 존중하는 선생님}</span>
-- 공개해도 되는 자료 여부: <span class="swap-slot">{없음 / 익명 처리한 문장 일부 / 재구성한 예시}</span>
-- 절대 쓰면 안 되는 정보: <span class="swap-slot">{아이 이름, 얼굴, 학교명, 원문 전체, 학원명, 상담 유도}</span>
+- 오늘의 상황: <span class="editable-slot" contenteditable="true" spellcheck="false">예: 초3 아이들이 처음에는 토론 수업 때 쭈뼛쭈뼛했는데, 이제는 자신감 있게 본인의 주장을 이야기하는 모습이 새삼 대견스럽다</span>
+- 기억에 남은 장면: <span class="editable-slot" contenteditable="true" spellcheck="false">예: 한 아이가 예상 밖의 의견을 냈다</span>
+- 아이들에게 느낀 점: <span class="editable-slot" contenteditable="true" spellcheck="false">예: 아이들 생각이 너무 깊고, 이렇게 성장했다는 부분이 뿌듯했다</span>
+- 글에서 보여주고 싶은 선생님 모습: <span class="editable-slot" contenteditable="true" spellcheck="false">예: 아이들 생각을 존중하는 선생님</span>
+- 공개해도 되는 자료 여부: <span class="editable-slot" contenteditable="true" spellcheck="false">없음 / 익명 처리한 문장 일부 / 재구성한 예시</span>
+- 절대 쓰면 안 되는 정보: <span class="editable-slot" contenteditable="true" spellcheck="false">아이 이름, 얼굴, 학교명, 원문 전체, 학원명, 상담 유도</span>
 
 <span class="bracket">[작성 조건]</span>
 - 일반 게시판용 글로 작성
@@ -2649,22 +2801,31 @@
           <div class="field-label">
             프롬프트 복사 후 <span class="swap-legend">색칠된 글 재료 부분</span>만 아래 3가지 예시 중 하나로 교체하세요
           </div>
-          <div class="prompt-box" id="prompt-comm-edu">나는 <span class="swap-slot">{지역명}</span>에서 초등 독서토론논술을 가르치는 선생님입니다.
+
+          <!-- 글 재료 자동 교체 버튼 -->
+          <div class="edu-material-switcher">
+            <span class="edu-material-label">✨ 글 재료 선택 →</span>
+            <button class="edu-mat-btn active" onclick="setEduMaterial('timely', this)">🗓️ 시의성 글</button>
+            <button class="edu-mat-btn" onclick="setEduMaterial('concern', this)">💭 고민 해결글</button>
+            <button class="edu-mat-btn" onclick="setEduMaterial('local', this)">📍 지역 정보글</button>
+          </div>
+
+          <div class="prompt-box" id="prompt-comm-edu">나는 <span class="editable-slot" contenteditable="true" spellcheck="false">지역명</span>에서 초등 독서토론논술을 가르치는 선생님입니다.
 내가 제공한 정보를 바탕으로 커뮤니티 내에서 학부모에게 도움되는 교육 관련 글을 작성해주세요.
 
 ★<span class="bracket">[핵심 작성 조건]</span>
-- <span class="swap-slot">{지역명}</span>에서 아이들을 가르치는 '논술 선생님'이라는 정체성을 당당하고 자연스럽게 오픈하되,
+- <span class="editable-slot" contenteditable="true" spellcheck="false">지역명</span>에서 아이들을 가르치는 '논술 선생님'이라는 정체성을 당당하고 자연스럽게 오픈하되,
   학원 홍보가 아닌 '동네 아이들을 많이 겪어본 친근한 전문가'의 포지션입니다.
 
 <span class="bracket">[글 재료]</span>
-- 글 유형: <span class="swap-slot">{시의성 글 / 학부모 고민 해결글 / 지역 정보 공유글}</span>
-- 주제: <span class="swap-slot">{예: 방학 독서 계획 / 독후감 싫어하는 아이 / 도서관 프로그램 공유}</span>
-- 대상 학년: <span class="swap-slot">{예: 초2~초3 / 초3~초5 / 초5~초6}</span>
-- 학부모 고민: <span class="swap-slot">{예: 책은 읽는데 독후감을 싫어함}</span>
-- 선생님 관점의 핵심 조언: <span class="swap-slot">{예: 바로 쓰기보다 말하기부터 해도 좋음}</span>
-- 집에서 해볼 방법: <span class="swap-slot">{예: 기억나는 장면 하나와 이유 하나만 말하게 하기}</span>
-- 지역 정보가 있다면: <span class="swap-slot">{예: 동네 도서관 방학 프로그램, 없으면 없음}</span>
-- 절대 넣지 말아야 할 내용: <span class="swap-slot">{학원명, 상담, 무료체험, 가격, 모집, 문의 유도}</span>
+- 글 유형: <span id="edu-slot-type" class="editable-slot" contenteditable="true" spellcheck="false">시의성 글</span>
+- 주제: <span id="edu-slot-topic" class="editable-slot" contenteditable="true" spellcheck="false">여름방학 독서 계획</span>
+- 대상 학년: <span id="edu-slot-grade" class="editable-slot" contenteditable="true" spellcheck="false">초3~초5</span>
+- 학부모 고민: <span id="edu-slot-worry" class="editable-slot" contenteditable="true" spellcheck="false">방학 때 책을 읽히고 싶은데 계획이 잘 안 지켜짐</span>
+- 선생님 관점의 핵심 조언: <span id="edu-slot-advice" class="editable-slot" contenteditable="true" spellcheck="false">권수보다 읽는 시간과 말하기 루틴을 먼저 잡기</span>
+- 집에서 해볼 방법: <span id="edu-slot-home" class="editable-slot" contenteditable="true" spellcheck="false">하루 15분 읽고 기억나는 장면 하나 말하기</span>
+- 지역 정보가 있다면: <span id="edu-slot-local" class="editable-slot" contenteditable="true" spellcheck="false">없음</span>
+- 절대 넣지 말아야 할 내용: <span class="editable-slot" contenteditable="true" spellcheck="false">학원명, 상담, 무료체험, 가격, 모집, 문의 유도</span>
 
 <span class="bracket">[작성 조건]</span>
 - 일반 게시판용 글로 작성
@@ -2681,148 +2842,24 @@
 2. 게시글 초안</div>
           <button class="copy-btn" onclick="copyPrompt('prompt-comm-edu', this)">📋 프롬프트 복사하기</button>
 
+          <div class="field-label" style="margin-top:20px;">결과물 예시 (🗓️ 시의성 글 — 여름방학 독서 계획 기준)</div>
+          <div class="result-example">
+            <div class="result-section-label">■ 1. 제목 후보 5개</div>
+            <div class="comm-example-list">
+              <div class="comm-example-item">방학 독서 계획, 권수보다 이게 먼저예요</div>
+              <div class="comm-example-item">방학마다 독서 계획이 무너지는 이유</div>
+              <div class="comm-example-item">하루 15분, 방학 독서 습관 만드는 현실적인 방법</div>
+              <div class="comm-example-item">방학 책 몇 권 읽혀야 할까 고민하셨다면</div>
+              <div class="comm-example-item">방학 독서, 양보다 이 루틴이 더 중요하더라고요</div>
+            </div>
+            <div class="result-section-label" style="margin-top:14px;">■ 2. 게시글 초안</div>
+            <div class="caption-preview">
+              <p class="caption-body" style="margin:0;">방학마다 독서 계획을 세우지만 일주일도 못 가서 흐지부지되는 경우가 많습니다. 권수를 정해두고 시작하면 부담이 커져서 오히려 책과 멀어지기 쉽습니다.<br><br>아이들을 지도하면서 느낀 건, 몇 권을 읽었는지보다 매일 같은 시간에 짧게라도 읽는 루틴이 훨씬 중요하다는 점입니다. 읽는 시간이 자리 잡히면 권수는 자연스럽게 따라오는 경우가 많습니다.<br><br>방법은 단순합니다. 하루 15분 정도 책을 읽고, 그날 기억나는 장면 하나를 말로 표현해보게 하는 겁니다. 줄거리를 전부 말하지 않아도 괜찮습니다. 인상 깊었던 한 장면이면 충분합니다.<br><br>이렇게 말하기 루틴이 쌓이면 방학이 끝난 뒤에도 독서 습관이 이어지는 경우를 많이 봤습니다. 이번 방학엔 권수보다 이 루틴부터 한번 시도해보시면 좋을 것 같습니다.</p>
+            </div>
+          </div>
+
         </div>
       </div>
-
-      <!-- 글 재료 3종 선택 -->
-      <div class="section-title" style="margin-top:28px;">
-        <span>🧩 글 재료 갈아 끼우기</span>
-      </div>
-      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:14px;">
-        아래 3가지 재료 중 하나를 선택해 위 프롬프트의 <span class="swap-legend">글 재료</span> 부분에 그대로 교체하세요.
-      </p>
-
-      <div class="material-tab-nav">
-        <button class="material-tab-btn active" onclick="switchMaterial('timely', this)">🗓️ 시의성 글</button>
-        <button class="material-tab-btn" onclick="switchMaterial('concern', this)">💭 고민 해결글</button>
-        <button class="material-tab-btn" onclick="switchMaterial('local', this)">📍 지역 정보글</button>
-      </div>
-
-      <!-- 재료 1: 시의성 글 -->
-      <div id="material-timely" class="material-panel active-material">
-        <div class="material-box">
-          <div class="material-box-title">🗓️ 시의성 글 — 여름방학 독서 계획</div>
-          <div class="material-content">[글 재료]
-- 글 유형: 시의성 글
-- 주제: 여름방학 독서 계획
-- 대상 학년: 초3~초5
-- 학부모 고민: 방학 때 책을 읽히고 싶은데 계획이 잘 안 지켜짐
-- 선생님 관점의 핵심 조언: 권수보다 읽는 시간과 말하기 루틴을 먼저 잡기
-- 집에서 해볼 방법: 하루 15분 읽고 기억나는 장면 하나 말하기
-- 지역 정보가 있다면: 없음
-- 절대 넣지 말아야 할 내용: 학원명, 상담, 무료체험, 가격, 모집, 문의 유도</div>
-          <button class="copy-btn" onclick="copyPrompt('material-timely-text', this)" style="margin-top:10px;">📋 이 재료 복사하기</button>
-          <div style="display:none;" id="material-timely-text">[글 재료]
-- 글 유형: 시의성 글
-- 주제: 여름방학 독서 계획
-- 대상 학년: 초3~초5
-- 학부모 고민: 방학 때 책을 읽히고 싶은데 계획이 잘 안 지켜짐
-- 선생님 관점의 핵심 조언: 권수보다 읽는 시간과 말하기 루틴을 먼저 잡기
-- 집에서 해볼 방법: 하루 15분 읽고 기억나는 장면 하나 말하기
-- 지역 정보가 있다면: 없음
-- 절대 넣지 말아야 할 내용: 학원명, 상담, 무료체험, 가격, 모집, 문의 유도</div>
-        </div>
-
-        <div class="field-label" style="margin-top:18px;">결과물 예시 (이런 식으로 나와요)</div>
-        <div class="result-example">
-          <div class="result-section-label">■ 1. 제목 후보 5개</div>
-          <div class="comm-example-list">
-            <div class="comm-example-item">방학 독서 계획, 권수보다 이게 먼저예요</div>
-            <div class="comm-example-item">방학마다 독서 계획이 무너지는 이유</div>
-            <div class="comm-example-item">하루 15분, 방학 독서 습관 만드는 현실적인 방법</div>
-            <div class="comm-example-item">방학 책 몇 권 읽혀야 할까 고민하셨다면</div>
-            <div class="comm-example-item">방학 독서, 양보다 이 루틴이 더 중요하더라고요</div>
-          </div>
-          <div class="result-section-label" style="margin-top:14px;">■ 2. 게시글 초안</div>
-          <div class="caption-preview">
-            <p class="caption-body" style="margin:0;">방학마다 독서 계획을 세우지만 일주일도 못 가서 흐지부지되는 경우가 많습니다. 권수를 정해두고 시작하면 부담이 커져서 오히려 책과 멀어지기 쉽습니다.<br><br>아이들을 지도하면서 느낀 건, 몇 권을 읽었는지보다 매일 같은 시간에 짧게라도 읽는 루틴이 훨씬 중요하다는 점입니다. 읽는 시간이 자리 잡히면 권수는 자연스럽게 따라오는 경우가 많습니다.<br><br>방법은 단순합니다. 하루 15분 정도 책을 읽고, 그날 기억나는 장면 하나를 말로 표현해보게 하는 겁니다. 줄거리를 전부 말하지 않아도 괜찮습니다. 인상 깊었던 한 장면이면 충분합니다.<br><br>이렇게 말하기 루틴이 쌓이면 방학이 끝난 뒤에도 독서 습관이 이어지는 경우를 많이 봤습니다. 이번 방학엔 권수보다 이 루틴부터 한번 시도해보시면 좋을 것 같습니다.</p>
-          </div>
-        </div>
-      </div><!-- /material-timely -->
-
-      <!-- 재료 2: 학부모 고민 해결글 -->
-      <div id="material-concern" class="material-panel">
-        <div class="material-box">
-          <div class="material-box-title">💭 학부모 고민 해결글 — 독후감 싫어하는 아이</div>
-          <div class="material-content">[글 재료]
-- 글 유형: 학부모 고민 해결글
-- 주제: 독후감 싫어하는 아이
-- 대상 학년: 초3~초4
-- 학부모 고민: 책은 읽는데 독후감을 너무 싫어함
-- 선생님 관점의 핵심 조언: 책 자체보다 쓰기 부담이 클 수 있음
-- 집에서 해볼 방법: 독후감 전에 기억나는 장면 하나와 이유 하나만 말하게 하기
-- 지역 정보가 있다면: 없음
-- 절대 넣지 말아야 할 내용: 학원명, 상담, 무료체험, 가격, 모집, 문의</div>
-          <button class="copy-btn" onclick="copyPrompt('material-concern-text', this)" style="margin-top:10px;">📋 이 재료 복사하기</button>
-          <div style="display:none;" id="material-concern-text">[글 재료]
-- 글 유형: 학부모 고민 해결글
-- 주제: 독후감 싫어하는 아이
-- 대상 학년: 초3~초4
-- 학부모 고민: 책은 읽는데 독후감을 너무 싫어함
-- 선생님 관점의 핵심 조언: 책 자체보다 쓰기 부담이 클 수 있음
-- 집에서 해볼 방법: 독후감 전에 기억나는 장면 하나와 이유 하나만 말하게 하기
-- 지역 정보가 있다면: 없음
-- 절대 넣지 말아야 할 내용: 학원명, 상담, 무료체험, 가격, 모집, 문의</div>
-        </div>
-
-        <div class="field-label" style="margin-top:18px;">결과물 예시 (이런 식으로 나와요)</div>
-        <div class="result-example">
-          <div class="result-section-label">■ 1. 제목 후보 5개</div>
-          <div class="comm-example-list">
-            <div class="comm-example-item">책은 잘 읽는데 독후감만 싫어하는 아이, 이유가 있어요</div>
-            <div class="comm-example-item">독후감 거부하는 아이, 책이 싫은 게 아니더라고요</div>
-            <div class="comm-example-item">독후감 쓰기 전에 이것부터 해보세요</div>
-            <div class="comm-example-item">우리 아이만 독후감 싫어하는 거 아니었어요</div>
-            <div class="comm-example-item">독후감 거부감, 쓰기 부담을 먼저 줄여주면 달라져요</div>
-          </div>
-          <div class="result-section-label" style="margin-top:14px;">■ 2. 게시글 초안</div>
-          <div class="caption-preview">
-            <p class="caption-body" style="margin:0;">책은 곧잘 읽으면서 독후감만 쓰자고 하면 싫어하는 아이들이 꽤 많습니다. 이럴 때 책 자체를 싫어한다고 오해하기 쉬운데, 실제로는 쓰기라는 행위 자체가 부담스러운 경우가 더 많습니다.<br><br>읽기와 쓰기는 전혀 다른 능력입니다. 머릿속에 생각이 있어도 그걸 글로 옮기는 건 또 다른 훈련이 필요한 영역입니다. 그래서 쓰기 전 단계가 빠지면 아이는 독후감을 매번 어렵게 느낄 수밖에 없습니다.<br><br>이럴 때는 독후감을 쓰기 전에 먼저 말로 표현하는 단계를 거치는 게 도움이 됩니다. 책에서 기억나는 장면 하나, 그리고 왜 그 장면이 기억에 남는지 이유 하나만 말하게 해보세요. 이 두 가지만 말할 수 있어도 독후감의 절반은 이미 완성된 셈입니다.<br><br>몇 번 반복하다 보면 말하던 내용을 그대로 글로 옮기는 것만으로도 독후감이 훨씬 쉬워집니다. 독후감을 쓰기 전에 이 짧은 말하기 단계부터 한번 시도해보시면 좋을 것 같습니다.</p>
-          </div>
-        </div>
-      </div><!-- /material-concern -->
-
-      <!-- 재료 3: 지역 정보 공유글 -->
-      <div id="material-local" class="material-panel">
-        <div class="material-box">
-          <div class="material-box-title">📍 지역 정보 공유글 — 도서관 방학 프로그램</div>
-          <div class="material-content">[글 재료]
-- 글 유형: 지역 정보 공유글
-- 주제: 도서관 방학 프로그램 공유
-- 대상 학년: 초1~초3
-- 학부모 고민: 집에서 책 읽히기가 쉽지 않음
-- 선생님 관점의 핵심 조언: 밖에서 듣고 이야기 나누는 경험도 독서 습관에 도움될 수 있음
-- 집에서 해볼 방법: 프로그램 다녀온 뒤 기억나는 장면 하나만 말하게 하기
-- 지역 정보가 있다면: 동네 도서관 방학 어린이 독서 프로그램
-- 절대 넣지 말아야 할 내용: 학원명, 상담, 무료체험, 가격, 모집, 문의 유도</div>
-          <button class="copy-btn" onclick="copyPrompt('material-local-text', this)" style="margin-top:10px;">📋 이 재료 복사하기</button>
-          <div style="display:none;" id="material-local-text">[글 재료]
-- 글 유형: 지역 정보 공유글
-- 주제: 도서관 방학 프로그램 공유
-- 대상 학년: 초1~초3
-- 학부모 고민: 집에서 책 읽히기가 쉽지 않음
-- 선생님 관점의 핵심 조언: 밖에서 듣고 이야기 나누는 경험도 독서 습관에 도움될 수 있음
-- 집에서 해볼 방법: 프로그램 다녀온 뒤 기억나는 장면 하나만 말하게 하기
-- 지역 정보가 있다면: 동네 도서관 방학 어린이 독서 프로그램
-- 절대 넣지 말아야 할 내용: 학원명, 상담, 무료체험, 가격, 모집, 문의 유도</div>
-        </div>
-
-        <div class="field-label" style="margin-top:18px;">결과물 예시 (이런 식으로 나와요)</div>
-        <div class="result-example">
-          <div class="result-section-label">■ 1. 제목 후보 5개</div>
-          <div class="comm-example-list">
-            <div class="comm-example-item">집에서 책 읽히기 힘드시다면 이런 방법도 있어요</div>
-            <div class="comm-example-item">동네 도서관 방학 프로그램, 의외로 독서 습관에 도움돼요</div>
-            <div class="comm-example-item">책 억지로 읽히지 말고 밖에서 들려주는 것도 방법이에요</div>
-            <div class="comm-example-item">저학년 독서 습관, 도서관 프로그램으로 시작해보세요</div>
-            <div class="comm-example-item">방학에 도서관 한 번 다녀온 게 생각보다 효과 있었어요</div>
-          </div>
-          <div class="result-section-label" style="margin-top:14px;">■ 2. 게시글 초안</div>
-          <div class="caption-preview">
-            <p class="caption-body" style="margin:0;">집에서 아이에게 책을 읽히는 게 쉽지 않다는 이야기를 자주 듣습니다. 매번 책상 앞에 앉혀서 읽히려고 하면 아이도 부모님도 지치기 마련입니다.<br><br>이럴 때는 꼭 집에서 직접 읽는 것만 독서라고 생각하지 않아도 됩니다. 밖에서 누군가의 이야기를 듣고, 그 내용에 대해 대화를 나누는 경험도 독서 습관을 만드는 데 충분히 도움이 됩니다.<br><br>마침 동네 도서관에서 방학 동안 어린이 독서 프로그램을 운영하고 있습니다. 책을 직접 읽는 부담 없이, 듣고 이야기 나누는 경험을 할 수 있는 좋은 기회가 될 수 있습니다.<br><br>프로그램에 다녀온 뒤에는 거창하게 정리할 필요 없이, 가장 기억나는 장면 하나만 물어봐 주세요. 이 짧은 대화 하나가 책에 대한 거부감을 줄이는 데 의외로 큰 역할을 합니다. 동네 도서관 방학 프로그램, 한번 살펴보시면 좋을 것 같습니다.</p>
-          </div>
-        </div>
-      </div><!-- /material-local -->
 
     </div><!-- /content-edu -->
 
@@ -2850,13 +2887,15 @@
   <!-- ─── 서브탭: 개인 피드백 생성 ─── -->
   <div id="sub-fb-personal" class="sub-tab-panel active">
   <div class="container">
+  <div class="menu-hero"><div class="menu-hero-text"><span class="menu-hero-emoji">💬</span>피드백, 꼭 필요한 것은 알지만 매번 쓰기 어렵다면? AI로 1분 만에 만들기</div></div>
 
     <div class="notice-box">
       <span class="icon">✉️</span>
       <div>
         <strong>한 건씩 개인 피드백을 생성하는 프롬프트입니다</strong><br>
         수업 후 메모를 바탕으로 AI가 학부모님께 보낼 다정하고 신뢰감 있는 카톡 피드백을 작성해드려요.<br>
-        프롬프트를 복사해 ChatGPT · Gemini · Claude에 붙여넣고 <strong>{ } 안 내용만 수정</strong>하세요.
+        프롬프트를 복사해 ChatGPT · Gemini · Claude에 붙여넣어 활용하세요.<br>
+        아래 프롬프트에서 빨간 글씨 영역을 직접 작성하셔서 바로 활용 가능합니다.
       </div>
     </div>
 
@@ -2888,23 +2927,23 @@
           <li><span class="dot">5</span><div><strong>3단계 구조</strong> — 칭찬 → 부드러운 보완 권유 → 가정 연계 팁 & 맺음말 순서</div></li>
         </ul>
 
-        <div class="field-label">프롬프트 복사 후 { } 안 내용만 수정하세요</div>
+        <div class="prompt-guide-label">✏️ 빨간 글씨를 클릭해서 바로 입력한 후 복사해 AI 툴에 붙여 넣으세요</div>
         <div class="prompt-box" id="prompt-feedback-personal">당신은 베테랑 독서토론논술 학원 선생님입니다.
 제공된 정보를 바탕으로, 학부모님이 카카오톡이나 문자로 읽었을 때
 다정함과 깊은 신뢰감을 느낄 수 있는 '오늘의 수업 피드백'을 작성해주세요.
 
 <span class="bracket">[학생 및 수업 정보]</span>
-- 학생 이름: <span class="swap-slot">{학생 이름}</span>
-- 학년: <span class="swap-slot">{학년}</span>
-- 수업 프로그램명: <span class="swap-slot">{수업 프로그램명}</span>
-- 오늘의 수업 형태: <span class="swap-slot">{글쓰기 수업, 토론 수업}</span>
+- 학생 이름: <span class="editable-slot" contenteditable="true" spellcheck="false">학생 이름</span>
+- 학년: <span class="editable-slot" contenteditable="true" spellcheck="false">학년</span>
+- 수업 프로그램명: <span class="editable-slot" contenteditable="true" spellcheck="false">수업 프로그램명</span>
+- 오늘의 수업 형태: <span class="editable-slot" contenteditable="true" spellcheck="false">글쓰기 수업, 토론 수업</span>
 
 <span class="bracket">[오늘의 수업 메모]</span>
-- 오늘 배운 핵심 주제: <span class="swap-slot">{수업 내용 또는 도서명}</span>
-- 아이가 오늘 가장 잘한 점: <span class="swap-slot">{잘한 점}</span>
-- 조금 더 보완하면 좋을 점: <span class="swap-slot">{어려워한 점}</span>
-- 다음 수업 지도 방향: <span class="swap-slot">{다음 지도 방향}</span>
-- 집에서 함께해주시면 좋은 팁: <span class="swap-slot">{가정 연계 팁}</span>
+- 오늘 배운 핵심 주제: <span class="editable-slot" contenteditable="true" spellcheck="false">수업 내용 또는 도서명</span>
+- 아이가 오늘 가장 잘한 점: <span class="editable-slot" contenteditable="true" spellcheck="false">잘한 점</span>
+- 조금 더 보완하면 좋을 점: <span class="editable-slot" contenteditable="true" spellcheck="false">어려워한 점</span>
+- 다음 수업 지도 방향: <span class="editable-slot" contenteditable="true" spellcheck="false">다음 지도 방향</span>
+- 집에서 함께해주시면 좋은 팁: <span class="editable-slot" contenteditable="true" spellcheck="false">가정 연계 팁</span>
 
 <span class="bracket">[피드백 작성 조건]</span>
 - 분량: 카톡/문자 화면에서 한눈에 읽기 좋게 전체 '5~8문장 내외'로 짧고 명확하게 작성해주세요.
@@ -2916,7 +2955,7 @@
 - 구조: 아래 출력 형식을 준수하여 가독성 있게 작성해주세요.
 
 <span class="bracket">[출력 형식]</span>
-<span class="swap-slot">{학생 이름}</span> 어머니, 안녕하세요. 한우리독서토론논술 최유진 선생님입니다.
+<span class="editable-slot" contenteditable="true" spellcheck="false">학생 이름</span> 어머니, 안녕하세요. 한우리독서토론논술 <span class="editable-slot" contenteditable="true" spellcheck="false">최유진</span> 선생님입니다.
 (1단계: 오늘 배운 주제 & 수업 형태에 맞춰 아이가 가장 훌륭했던 점 칭찬)
 (2단계: 조금 더 연습하면 좋은 부분 & 다음 수업 지도 방향을 부드러운 권유형으로)
 (3단계: 가정에서 함께 실천할 수 있는 연계 팁 & 정중한 맺음말)</div>
@@ -2960,6 +2999,7 @@
   <!-- ─── 서브탭: 대량 피드백 일괄 생성 ─── -->
   <div id="sub-fb-bulk" class="sub-tab-panel">
   <div class="container">
+  <div class="menu-hero"><div class="menu-hero-text"><span class="menu-hero-emoji">📊</span>피드백, 꼭 필요한 것은 알지만 매번 쓰기 어렵다면? 대량 피드백도 AI로 한번에 만들기</div></div>
 
     <div class="notice-box">
       <span class="icon">📝</span>
@@ -2974,7 +3014,7 @@
       <span>프롬프트 복사하기</span>
     </div>
     <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:14px;">
-      아래 프롬프트를 복사한 뒤, <span class="swap-legend">[수업 메모]</span> 칸에 메모 내용을 붙여넣고 AI에 전송하세요. <strong>{ } 안 내용만 수정</strong>하면 됩니다.
+      아래 프롬프트에서 빨간 글씨 영역을 직접 작성하셔서 바로 활용 가능합니다.
     </p>
 
     <div class="prompt-card">
@@ -2998,19 +3038,19 @@
           <li><span class="dot">4</span><div><strong>학생 구분 출력</strong> — ■ 헤더로 학생마다 명확하게 구분해 한 번에 출력</div></li>
         </ul>
 
-        <div class="field-label">프롬프트 복사 후 <span class="swap-legend">{ } 안 내용</span>과 <span class="swap-legend">[수업 메모]</span>를 수정하세요</div>
+        <div class="prompt-guide-label">✏️ 빨간 글씨를 클릭해서 바로 입력한 후 복사해 AI 툴에 붙여 넣으세요</div>
         <div class="prompt-box" id="prompt-feedback-bulk">당신은 베테랑 독서토론논술 학원 선생님입니다.
 아래 [공통 정보]와 [수업 메모]를 바탕으로,
 학생별 카톡/문자 피드백 문장을 각각 생성해주세요.
 
 <span class="bracket">[공통 정보]</span>
-- 수업 날짜: <span class="swap-slot">{2026년 6월 29일}</span>
-- 수업 프로그램명: <span class="swap-slot">{한우리 독서 리더2}</span>
-- 오늘의 수업 형태: <span class="swap-slot">{토론 수업}</span>
+- 수업 날짜: <span class="editable-slot" contenteditable="true" spellcheck="false">2026년 6월 29일</span>
+- 수업 프로그램명: <span class="editable-slot" contenteditable="true" spellcheck="false">한우리 독서 리더2</span>
+- 오늘의 수업 형태: <span class="editable-slot" contenteditable="true" spellcheck="false">토론 수업</span>
 
 <span class="bracket">[수업 메모]</span>
-(여기에 메모장·카톡 메모 내용을 그대로 붙여넣으세요)
-<span class="swap-slot">{예시: 민우 - 고급 어휘 선택이 늘었음. 두괄식 표현을 다듬을 수 있도록 지도 예정. 서연 - 자신감 있는 태도와 목소리. 상대방의 의견을 끝까지 들을 수 있도록 지도 예정.}</span>
+<span class="bulk-student-list" id="bulk-student-list"><span class="bulk-student-row" data-student-row><span class="editable-slot" contenteditable="true" spellcheck="false">학생1</span> : <span class="editable-slot memo-slot" contenteditable="true" spellcheck="false">수업 메모</span><button type="button" class="bulk-remove-student-btn no-copy" onclick="removeBulkStudentRow(this)" aria-label="학생 삭제">✕</button></span><span class="bulk-student-row" data-student-row><span class="editable-slot" contenteditable="true" spellcheck="false">학생2</span> : <span class="editable-slot memo-slot" contenteditable="true" spellcheck="false">수업 메모</span><button type="button" class="bulk-remove-student-btn no-copy" onclick="removeBulkStudentRow(this)" aria-label="학생 삭제">✕</button></span></span>
+<button type="button" class="bulk-add-student-btn no-copy" onclick="addBulkStudentRow()">➕ 학생 추가</button>
 
 <span class="bracket">[작성 조건]</span>
 - 분량: 학생당 카톡/문자 화면에서 한눈에 읽기 좋게 '5~8문장 내외'로 작성해주세요.
@@ -3022,11 +3062,10 @@
 
 <span class="bracket">[출력 형식]</span>
 ■ [학생 이름] 학부모님 피드백 (수업일: [수업 날짜])
-[학생 이름] 어머니, 안녕하세요. 한우리독서토론논술 화성지점 최유진 선생님입니다.
+[학생 이름] 어머니, 안녕하세요. 한우리독서토론논술 화성지점 <span class="editable-slot" contenteditable="true" spellcheck="false">최유진</span> 선생님입니다.
 (1단계: 오늘 공통 주제 & 수업 형태에 맞춰 아이가 가장 훌륭했던 점 칭찬)
 (2단계: 조금 더 보완하면 좋은 부분 & 다음 수업 지도 방향)
-(3단계: 가정에서 함께 실천할 수 있는 연계 팁 & 정중한 맺음말)
-------------------------------------</div>
+(3단계: 가정에서 함께 실천할 수 있는 연계 팁 & 정중한 맺음말)</div>
         <button class="copy-btn" onclick="copyPrompt('prompt-feedback-bulk', this)">📋 프롬프트 복사하기</button>
 
       </div>
@@ -3034,7 +3073,7 @@
 
     <!-- 실습 예시 메모 -->
     <div class="section-title" style="margin-top:28px;">
-      <span>실습 예시 메모</span>
+      <span>메모 예시</span>
     </div>
     <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:14px;">
       아래와 같이 메모장·카카오톡에 적어둔 수업 메모를 그대로 프롬프트의 [수업 메모] 칸에 붙여넣으면 돼요.
@@ -3042,9 +3081,7 @@
     <div class="memo-sample-box" id="memo-sample-text">6/29 독서리더2 초4 수업 메모
 민우 - 고급 어휘 선택이 늘었음. 두괄식 표현을 다듬을 수 있도록 지도 예정.
 서연 - 자신감 있는 태도와 목소리. 상대방의 의견을 끝까지 들을 수 있도록 지도 예정.</div>
-    <div style="text-align:right; margin-top:8px;">
-      <button class="copy-btn" onclick="copyPrompt('memo-sample-text', this)">📋 메모 복사하기</button>
-    </div>
+    
 
     <!-- 결과물 예시 -->
     <div class="section-title" style="margin-top:28px;">
@@ -3063,7 +3100,6 @@
           <p>집에서 오늘 배운 내용이나 인상 깊었던 부분을 한 가지만 말해보게 해주시면 큰 도움이 됩니다. 오늘도 열심히 참여해 준 민우에게 응원 한마디 전해주세요. 감사합니다.</p>
         </div>
       </div>
-      <div class="bulk-divider">------------------------------------</div>
       <div class="bulk-result-item">
         <div class="bulk-result-header">■ 서연 학부모님 피드백 <span class="bulk-date-badge">수업일: 2026-06-29</span></div>
         <div class="feedback-bubble">
@@ -3104,16 +3140,14 @@
 <!-- ═══════════════════════════════════════ -->
 <div id="tab-trend" class="tab-panel">
 <div class="container">
-
-  <div class="notice-box purple">
-    <span class="icon">🔥</span>
-    <div>
-      <strong>요즘 유행하는 AI 이미지 프롬프트 모음</strong><br>
-      게시물에 바로 활용할 수 있는 인기 프롬프트를 모아뒀어요. <strong>새로운 유행 프롬프트가 생길 때마다 이 페이지는 계속 업데이트됩니다.</strong> 종종 들러서 확인해 보세요!
+  <div class="menu-hero"><div class="menu-hero-text"><span class="menu-hero-emoji">🔥</span>유행하는 프롬프트로 콘텐츠를 더 풍성하게 만들기</div></div>
+  <div class="attach-guide-card" style="margin-bottom:20px;">
+    <div class="attach-guide-title">📋 이렇게 진행하세요</div>
+    <div class="attach-guide-steps">
+      <div class="attach-step"><span class="attach-num">1</span><span>사용할 이미지를 AI 대화창에 첨부해요</span></div>
+      <div class="attach-step"><span class="attach-num">2</span><span>아래 프롬프트를 복사하여 붙여넣어요</span></div>
     </div>
   </div>
-
-  <div class="update-badge">🔄 마지막 업데이트: 2026년 6월</div>
 
   <!-- 유행 01: 크레파스 -->
   <div class="prompt-card">
@@ -3129,17 +3163,17 @@
       ✏️ 프롬프트 보기 <span class="arrow">▾</span>
     </button>
     <div class="accordion-body">
-      <div class="prompt-box" id="prompt-crayon">원본 사진을 하얀 도화지 위에 5~10살 아이가 실제 크레파스로 직접 그린 그림처럼 바꿔줘.
+      <div class="prompt-box" id="prompt-crayon">원본 사진을 하얀 도화지 위에 5~10살 아이가 실제 크레파스로 직접 그린 그림처럼 바꿔주세요.
 
 - 원본의 인물 수, 자세, 구도는 유지해주세요.
 - 사람 얼굴은 크고 둥글고 단순하게, 눈은 작은 점 또는 짧은 선,
   코와 입은 아주 간단하게, 표정은 밝게 활짝 웃는 얼굴로 표현해주세요.
-- 볼은 분홍빛으로 발그레하게 넣어줘.
+- 볼은 분홍빛으로 발그레하게 넣어주세요.
 - 배경은 흰 도화지처럼 단순하게 하고, 해, 별, 구름, 꽃 같은 아기자기한 요소를 추가해주세요.
 - 전체적으로 귀엽고 사랑스럽고 동심 가득한 분위기로 만들어주세요.
-- 가장 중요한 점: 절대 디지털 일러스트, 동화책 삽화, 전문가 그림처럼 보이면 안 되고,
-  정말 실제 초등학생이 삐뚤빼뚤 그린 손그림처럼 보여야 해.
-- 다음 느낌을 꼭 살려줘:
+- 가장 중요한 점: 절대 디지털 일러스트, 동화책 삽화, 전문가 그림처럼 보이지 않도록 해주세요.
+  정말 실제 초등학생이 삐뚤빼뚤 그린 손그림처럼 보이도록 표현해주세요.
+- 다음 느낌을 꼭 살려주세요:
   ✓ 크레파스 특유의 거친 질감 — 모든 색칠 영역에 크레파스 결이 선명하게
   ✓ 색칠이 완벽하지 않고 군데군데 하얀 종이가 비치도록
   ✓ 선이 삐뚤빼뚤하고 일정하지 않게
@@ -3183,7 +3217,7 @@
     </button>
     <div class="accordion-body">
       <div class="prompt-box" id="prompt-handwriting">이 사진을 인스타그램 스토리용 감성 리뷰 이미지로 만들어주세요.
-이 사진은 [초등 논술 학원의 실내 인테리어 / 교재 사진] 이야.
+이 사진은 초등 논술 학원의 실내 인테리어 또는 교재 사진입니다.
 
 <span class="bracket">[스타일]</span>
 - 자연스럽고 따뜻한 색감
@@ -3235,18 +3269,60 @@
     </div>
   </div>
 
-  <div class="notice-box yellow" style="margin-top:8px;">
-    <span class="icon">📬</span>
-    <div>
-      좋은 유행 프롬프트를 발견하셨다면 언제든 공유해 주세요! 발견한 프롬프트의 예시 URL을 <strong>cyj@hanuribook.com</strong>으로 보내주시면, 다음 업데이트에 함께 추가하겠습니다.
-    </div>
-  </div>
-
 </div>
 </div>
 
 
 <script>
+/* ── 교육글 글 재료 자동 교체 ── */
+const _eduMaterials = {
+  timely: {
+    type: '시의성 글',
+    topic: '여름방학 독서 계획',
+    grade: '초3~초5',
+    worry: '방학 때 책을 읽히고 싶은데 계획이 잘 안 지켜짐',
+    advice: '권수보다 읽는 시간과 말하기 루틴을 먼저 잡기',
+    home: '하루 15분 읽고 기억나는 장면 하나 말하기',
+    local: '없음'
+  },
+  concern: {
+    type: '학부모 고민 해결글',
+    topic: '독후감 싫어하는 아이',
+    grade: '초3~초4',
+    worry: '책은 읽는데 독후감을 너무 싫어함',
+    advice: '책 자체보다 쓰기 부담이 클 수 있음',
+    home: '독후감 전에 기억나는 장면 하나와 이유 하나만 말하게 하기',
+    local: '없음'
+  },
+  local: {
+    type: '지역 정보 공유글',
+    topic: '도서관 방학 프로그램 공유',
+    grade: '초1~초3',
+    worry: '집에서 책 읽히기가 쉽지 않음',
+    advice: '밖에서 듣고 이야기 나누는 경험도 독서 습관에 도움될 수 있음',
+    home: '프로그램 다녀온 뒤 기억나는 장면 하나만 말하게 하기',
+    local: '동네 도서관 방학 어린이 독서 프로그램'
+  }
+};
+function setEduMaterial(key, btn) {
+  document.querySelectorAll('.edu-mat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const m = _eduMaterials[key];
+  if (!m) return;
+  const map = {
+    'edu-slot-type': m.type, 'edu-slot-topic': m.topic, 'edu-slot-grade': m.grade,
+    'edu-slot-worry': m.worry, 'edu-slot-advice': m.advice, 'edu-slot-home': m.home,
+    'edu-slot-local': m.local
+  };
+  Object.keys(map).forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = map[id];
+    el.setAttribute('data-placeholder', map[id]);
+    el.classList.remove('user-edited');
+  });
+}
+
 function switchMaterial(mat, btn) {
   const nav = btn.closest('.material-tab-nav');
   nav.querySelectorAll('.material-tab-btn').forEach(b => b.classList.remove('active'));
@@ -3312,7 +3388,13 @@ function _fallback(text, onSuccess, onFail) {
 
 /* ── 프롬프트 복사 ── */
 function copyPrompt(id, btn) {
-  const text = (document.getElementById(id).innerText || document.getElementById(id).textContent);
+  const source = document.getElementById(id);
+  const clone = source.cloneNode(true);
+  clone.querySelectorAll('.no-copy').forEach(n => n.remove());
+  clone.style.cssText = 'position:fixed; top:-9999px; left:-9999px; white-space:pre-wrap;';
+  document.body.appendChild(clone);
+  const text = clone.innerText || clone.textContent;
+  document.body.removeChild(clone);
   const orig = btn.innerHTML;
   _copyText(
     text,
@@ -3326,6 +3408,50 @@ function copyPrompt(id, btn) {
       setTimeout(() => { btn.innerHTML = orig; }, 2500);
     }
   );
+}
+
+/* ── 편집 슬롯: 클릭하면 빈칸으로, 비어있으면 예시 문구 노출 ── */
+function initEditableSlot(el) {
+  if (el.dataset.slotInit) return;
+  el.dataset.slotInit = '1';
+  if (!el.hasAttribute('data-placeholder')) {
+    el.setAttribute('data-placeholder', el.textContent);
+  }
+  el.addEventListener('focus', () => {
+    if (!el.classList.contains('user-edited') && el.textContent.trim() !== '') {
+      el.textContent = '';
+    }
+  });
+  el.addEventListener('input', () => {
+    el.classList.add('user-edited');
+  });
+}
+function initEditableSlotsIn(root) {
+  root.querySelectorAll('.editable-slot').forEach(initEditableSlot);
+}
+document.addEventListener('DOMContentLoaded', () => initEditableSlotsIn(document));
+
+/* ── 학부모 피드백: 학생별 수업 메모 행 추가/삭제 ── */
+function addBulkStudentRow() {
+  const list = document.getElementById('bulk-student-list');
+  if (!list) return;
+  const rows = list.querySelectorAll('[data-student-row]');
+  const nextNum = rows.length + 1;
+  const row = document.createElement('span');
+  row.className = 'bulk-student-row';
+  row.setAttribute('data-student-row', '');
+  row.innerHTML = '<span class="editable-slot" contenteditable="true" spellcheck="false">학생' + nextNum + '</span> : ' +
+    '<span class="editable-slot memo-slot" contenteditable="true" spellcheck="false">수업 메모</span>' +
+    '<button type="button" class="bulk-remove-student-btn no-copy" onclick="removeBulkStudentRow(this)" aria-label="학생 삭제">✕</button>';
+  list.appendChild(row);
+  initEditableSlotsIn(row);
+}
+function removeBulkStudentRow(btn) {
+  const list = document.getElementById('bulk-student-list');
+  if (!list) return;
+  const rows = list.querySelectorAll('[data-student-row]');
+  if (rows.length <= 1) return; /* 최소 1명은 남겨둠 */
+  btn.closest('[data-student-row]').remove();
 }
 
 /* ── 표 복사 ── */
